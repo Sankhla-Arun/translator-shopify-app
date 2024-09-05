@@ -1,0 +1,33 @@
+<div id="google_translate_element" style="text-align: {{ section.settings.align }};"></div>
+<p>Current alignment: {{ section.settings.align | default: 'right' }}</p>
+<script src="{{ 'jgs_translator.js' | asset_url }}" defer></script>
+{{ 'jgs_translator.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "JGS2",
+  "target": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right",
+      "label": "Translator Align"
+    }
+  ]
+}
+{% endschema %}
